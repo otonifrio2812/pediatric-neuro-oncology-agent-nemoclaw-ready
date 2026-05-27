@@ -37,6 +37,8 @@ Mermaid source: [`assets/architecture.mmd`](assets/architecture.mmd)
 
 ## Judge Quickstart
 
+Judges do not need to create their own patient case or have pediatric neuro-oncology expertise to test the project. A fully synthetic, de-identified pediatric high-grade glioma case is included in `sample_cases/` as `case_010_pediatric_glioma_hgg.txt` and `case_010_pediatric_glioma_hgg_structured.json`. Running the Judge Quickstart command will generate an MDT report under `outputs/`.
+
 This section provides a minimal path for judges to verify that the agent runs end-to-end. No NVIDIA API key is required for the basic demo; without `NVIDIA_API_KEY`, the system automatically uses deterministic MOCK Nemotron fallback while preserving the same agent workflow.
 
 ### 1. Clone and set up
