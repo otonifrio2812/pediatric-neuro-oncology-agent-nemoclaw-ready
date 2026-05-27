@@ -35,6 +35,41 @@ flowchart TD
 
 Mermaid source: [`assets/architecture.mmd`](assets/architecture.mmd)
 
+## Architecture 中文版
+
+由上而下的自主流程圖（中文版）。**Nemotron 3 Super** 為核心臨床推理引擎；右側的**自主更新迴圈**平行運作，以虛線箭頭將最新證據餵入 RAG 證據檢索步驟。
+
+```mermaid
+flowchart TD
+    A("1. 去識別化<br/>PHI / 個資規則清理")
+    B("2. 醫療影像分析（可選）<br/>JPG / PNG → 視覺語言模型產生影像描述<br/>DICOM / NIfTI → SAFE_MODE 預設開啟<br/>只做前處理與輔助觀察")
+    C("3. 病例完整性檢查<br/>年齡、腫瘤位置、病理、分子標記、影像描述")
+    D("4. RAG 證據檢索<br/>從 knowledge_base / rag_sources<br/>找相關文獻與臨床試驗片段")
+    E("5. NEMOTRON 3 SUPER<br/>核心臨床推理模型<br/>NVIDIA hosted；<br/>無 API key 時使用 deterministic MOCK fallback")
+    F("6. 臨床試驗初步比對<br/>依年齡、腫瘤類型、位置、分子標記比對")
+    G("7. 藥物敏感性研究附錄<br/>preclinical drug-ranking only<br/>不是治療建議")
+    H("8. 醫療安全防護欄<br/>7 條 policy<br/>禁止確定診斷、治療命令、手術指令<br/>加入醫師確認與研究原型免責聲明")
+    I("9. MDT 術前報告<br/>Markdown 報告<br/>給神外、兒腫、放射科、病理科 MDT 討論")
+    RL("自主更新迴圈<br/>PubMed E-utilities<br/>ClinicalTrials.gov v2 API<br/>預設每 6 小時更新<br/>demo 可 offline fallback")
+
+    A --> B --> C --> D --> E --> F --> G --> H --> I
+    RL -.->|"更新證據 / feeds new evidence"| D
+
+    classDef proc fill:#ece7f6,stroke:#7e6bb0,stroke-width:1px,color:#1b1b1b;
+    classDef imaging fill:#fdf3d0,stroke:#e0892b,stroke-width:2px,color:#1b1b1b;
+    classDef refresh fill:#dcf2e0,stroke:#3a9d54,stroke-width:1.5px,color:#1b1b1b;
+    classDef core fill:#fbd6dd,stroke:#d12b3c,stroke-width:4px,color:#111,font-weight:bold;
+    classDef guard fill:#dbe7fb,stroke:#2f6bd1,stroke-width:2px,color:#1b1b1b;
+
+    class A,C,D,F,G,I proc;
+    class B imaging;
+    class E core;
+    class H guard;
+    class RL refresh;
+```
+
+Mermaid source: [`assets/architecture_zh.mmd`](assets/architecture_zh.mmd)
+
 ## Judge Quickstart
 
 Judges do not need to create their own patient case or have pediatric neuro-oncology expertise to test the project. A fully synthetic, de-identified pediatric high-grade glioma case is included in `sample_cases/` as `case_010_pediatric_glioma_hgg.txt` and `case_010_pediatric_glioma_hgg_structured.json`. Running the Judge Quickstart command will generate an MDT report under `outputs/`.
