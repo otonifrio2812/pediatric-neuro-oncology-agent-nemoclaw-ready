@@ -35,6 +35,65 @@ flowchart TD
 
 Mermaid source: [`assets/architecture.mmd`](assets/architecture.mmd)
 
+## Judge Quickstart
+
+This section provides a minimal path for judges to verify that the agent runs end-to-end. No NVIDIA API key is required for the basic demo; without `NVIDIA_API_KEY`, the system automatically uses deterministic MOCK Nemotron fallback while preserving the same agent workflow.
+
+### 1. Clone and set up
+
+```bash
+git clone https://github.com/otonifrio2812/pediatric-neuro-oncology-agent-nemoclaw-ready.git
+cd pediatric-neuro-oncology-agent-nemoclaw-ready
+
+python -m venv .venv
+source .venv/bin/activate  # Windows PowerShell: .\.venv\Scripts\Activate.ps1
+
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 2. Run the agent end-to-end (no API key needed)
+
+```bash
+python run_demo.py sample_cases/case_010_pediatric_glioma_hgg.txt \
+  --structured-json sample_cases/case_010_pediatric_glioma_hgg_structured.json \
+  --attach-architecture
+```
+
+Expected console output:
+
+```text
+Reasoning mode: MOCK Nemotron (nvidia/nemotron-3-super-120b-a12b)
+Report written: outputs/case_report_<timestamp>.md
+```
+
+Open the generated `outputs/case_report_<timestamp>.md` to read the full MDT surgical-planning report: de-identification, RAG-retrieved evidence, clinical-trial matches, guardrail-checked Nemotron reasoning, and the mandatory safety disclaimers.
+
+### 3. (Optional) Run as an HTTP service
+
+The deployable FastAPI wrapper exposes the same workflow over HTTP. It only needs two extra packages — the local `guardrails.py` is used, so NVIDIA NeMo Guardrails is **not** required:
+
+```bash
+pip install fastapi "uvicorn[standard]"
+uvicorn app_nemoclaw:app --host 127.0.0.1 --port 8080
+```
+
+In a second terminal:
+
+```bash
+# liveness check
+curl http://127.0.0.1:8080/health
+
+# run a sample case through the API (MOCK mode, no key)
+curl -X POST http://127.0.0.1:8080/run_case \
+  -H "Content-Type: application/json" \
+  -d @examples/run_case_payload.json
+```
+
+`/health` returns `{"status": "ok", ...}`; `/run_case` returns the agent result with `"reasoning_mode": "MOCK Nemotron (...)"` and writes the report under `outputs/`.
+
+> This is a research prototype for demonstration only — not for clinical use. See **Safety scope** below.
+
 ## Core design
 
 Nemotron 3 Super is the core clinical reasoning model. Other modules are upstream tools:
