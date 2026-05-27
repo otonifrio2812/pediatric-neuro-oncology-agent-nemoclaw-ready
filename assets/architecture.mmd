@@ -1,0 +1,24 @@
+flowchart TD
+    A("1. De-identification<br/>(PHI regex scrub)")
+    B("2. Medical Imaging — optional dual path<br/>JPG / PNG → Nemotron Nano Omni VLM<br/>DICOM / NIfTI → SAFE_MODE<br/>(preprocessing only, default ON)")
+    C("3. Completeness Check")
+    D("4. RAG Evidence Retrieval<br/>TF-IDF + auto-picks refreshed<br/>PubMed / ClinicalTrials.gov")
+    E("5. NEMOTRON 3 SUPER<br/>CORE REASONING ENGINE<br/>NVIDIA hosted —<br/>deterministic MOCK fallback<br/>when no API key")
+    F("6. Clinical Trial Matching<br/>age + tumor type + molecular markers")
+    G("7. Drug Sensitivity Ranking<br/>ML model, GDSC2 cell lines<br/>KNS-42 OFF-DIST surrogate for DMG<br/>Medulloblastoma / Ependymoma → SKIPPED<br/>(clinical-safety policy)")
+    H("8. Guardrails — 7 policies<br/>incl. Policy 7: drug-section<br/>preclinical disclaimers")
+    I("9. MDT Report Generation<br/>(Markdown)")
+    RL("Autonomous Refresh Loop<br/>PubMed E-utilities +<br/>ClinicalTrials.gov v2 API<br/>every N hours (default 6h)<br/>--offline mode for demo resilience")
+
+    A --> B --> C --> D --> E --> F --> G --> H --> I
+    RL -. feeds new evidence .-> D
+
+    classDef proc fill:#ece7f6,stroke:#7e6bb0,stroke-width:1px,color:#1b1b1b;
+    classDef imaging fill:#fdf3d0,stroke:#e0892b,stroke-width:2px,color:#1b1b1b;
+    classDef refresh fill:#dcf2e0,stroke:#3a9d54,stroke-width:1.5px,color:#1b1b1b;
+    classDef core fill:#fbd6dd,stroke:#d12b3c,stroke-width:4px,color:#111,font-weight:bold;
+
+    class A,C,D,F,G,H,I proc;
+    class B imaging;
+    class E core;
+    class RL refresh;
