@@ -1,0 +1,15 @@
+{
+  "raw_case_text": "8-year-old child with progressive gait instability and vomiting. MRI describes an expansile pontine lesion with concern for diffuse midline glioma. H3 K27-altered pathology is suspected. No patient identifiers included.",
+  "structured": {
+    "age": 8,
+    "tumor_type": "diffuse midline glioma",
+    "tumor_location": "pons",
+    "pathology": "possible H3 K27-altered diffuse midline glioma",
+    "molecular_markers": {"H3K27M": "suspected"},
+    "symptoms": ["gait instability", "vomiting"],
+    "imaging_description": "MRI report text suggests pontine expansile lesion; AI output must be treated as auxiliary observation."
+  },
+  "attach_architecture": true,
+  "enable_drug_ranking": false,
+  "refresh_evidence_before_run": false
+}

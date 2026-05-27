@@ -1,0 +1,45 @@
+# Policy-based guardrails for NemoClaw deployment.
+# These mirror the existing guardrails.py policies and make them explicit for judging/auditing.
+policy_groups:
+  medical_mdt_decision_support:
+    input_policies:
+      - id: no_phi
+        severity: block_or_redact
+        description: Remove or redact patient identifiers before model calls or report generation.
+      - id: image_deidentification_required
+        severity: warn_or_block
+        description: DICOM metadata must be removed before cloud upload; burned-in PHI must be checked.
+      - id: pediatric_scope_only
+        severity: warn
+        description: Agent scope is pediatric neuro-oncology MDT planning, not general medical chat.
+    execution_policies:
+      - id: least_privilege_tools
+        severity: enforce
+        description: Allow only project-local files, approved evidence refresh endpoints, and NVIDIA model endpoints.
+      - id: drug_ranking_not_treatment
+        severity: enforce
+        description: Drug-ranking module may produce preclinical research appendix only, never prescriptions.
+      - id: imaging_not_diagnosis
+        severity: enforce
+        description: Imaging module may produce auxiliary observations only, not definitive diagnoses.
+    output_policies:
+      - id: no_definitive_diagnosis
+        severity: rewrite_or_flag
+        description: Replace definitive diagnostic wording with working differential / MDT framing.
+      - id: no_direct_treatment_orders
+        severity: rewrite_or_flag
+        description: No direct chemo, radiation, surgical, or medication orders.
+      - id: clinician_review_disclaimer
+        severity: enforce
+        description: Every report must include clinician-review-only decision-support disclaimer.
+      - id: high_risk_anatomy_flag
+        severity: enforce
+        description: Highlight pons, midbrain, medulla, spinal cord, cranial nerves, basilar artery, fourth ventricle, hydrocephalus.
+  evidence_refresh:
+    execution_policies:
+      - id: approved_sources_only
+        severity: enforce
+        description: Evidence refresh may query PubMed/NCBI and ClinicalTrials.gov only.
+      - id: auditable_refresh_log
+        severity: enforce
+        description: Every refresh must write logs/autonomous_runs.log and rag_sources/refresh_manifest.json.

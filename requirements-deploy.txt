@@ -1,0 +1,9 @@
+# Deployment/API layer
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.6.0
+python-multipart>=0.0.9
+
+# Optional NVIDIA NeMo Guardrails policy layer
+# If installation is heavy in Colab, you may skip this for local demo and keep guardrails.py active.
+nemoguardrails>=0.11.0

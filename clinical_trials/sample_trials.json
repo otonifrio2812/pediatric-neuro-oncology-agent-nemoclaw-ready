@@ -1,0 +1,32 @@
+[
+  {
+    "id": "SAMPLE-DMG-02",
+    "title": "Targeted agent for H3 K27M-altered diffuse midline glioma",
+    "phase": "Phase II",
+    "age_min": 2,
+    "age_max": 25,
+    "tumor_types": [
+      "diffuse midline glioma",
+      "brainstem glioma",
+      "high grade glioma"
+    ],
+    "markers": [
+      "h3k27m",
+      "h3 k27"
+    ],
+    "source": "ClinicalTrials.gov (illustrative sample)"
+  },
+  {
+    "id": "SAMPLE-MB-01",
+    "title": "Risk-adapted therapy for newly diagnosed medulloblastoma",
+    "phase": "Phase III",
+    "age_min": 3,
+    "age_max": 21,
+    "tumor_types": [
+      "medulloblastoma",
+      "posterior fossa tumor"
+    ],
+    "markers": [],
+    "source": "ClinicalTrials.gov (illustrative sample)"
+  }
+]

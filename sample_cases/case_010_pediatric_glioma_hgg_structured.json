@@ -1,0 +1,81 @@
+{
+  "age": 10,
+  "sex": "male",
+  "tumor_type": "pediatric-type diffuse high-grade glioma",
+  "suspected_diagnosis": "Pediatric-type diffuse high-grade glioma, H3-wildtype and IDH-wildtype, CNS WHO grade 4 favored",
+  "tumor_location": "left thalamus with extension toward posterior limb of internal capsule",
+  "anatomic_risk": [
+    "thalamus",
+    "posterior limb of internal capsule",
+    "corticospinal tract",
+    "third ventricle",
+    "hydrocephalus risk"
+  ],
+  "symptoms": [
+    "morning headache",
+    "vomiting",
+    "blurred vision",
+    "focal seizures",
+    "mild right hemiparesis",
+    "gait imbalance"
+  ],
+  "imaging_description": "Brain MRI demonstrates a left thalamic and posterior limb internal capsule centered infiltrative mass measuring approximately 4.1 x 3.6 x 3.2 cm. The lesion is T2/FLAIR hyperintense with heterogeneous T1 hypointensity. Post-contrast T1 imaging shows patchy irregular enhancement. There are small central non-enhancing regions suspicious for necrotic or cystic change. DWI/ADC shows areas of restricted diffusion along the enhancing solid component. SWI demonstrates a few punctate susceptibility foci concerning for microhemorrhage. There is mass effect on the third ventricle with mild obstructive hydrocephalus. No leptomeningeal dissemination is identified on available imaging. Spine MRI is pending.",
+  "pathology": "High-grade infiltrating glioma with hypercellularity, nuclear atypia, brisk mitotic activity, microvascular proliferation, and focal necrosis.",
+  "ihc": {
+    "GFAP": "positive",
+    "OLIG2": "positive",
+    "ATRX": "retained",
+    "p53": "increased nuclear staining in approximately 30 percent of tumor cells",
+    "Ki-67": "approximately 35 percent",
+    "H3 K27M": "negative",
+    "H3K27me3": "retained",
+    "IDH1 R132H": "negative",
+    "INI1/SMARCB1": "retained",
+    "BRG1/SMARCA4": "retained",
+    "BRAF V600E": "negative",
+    "Synaptophysin": "negative"
+  },
+  "molecular_markers": {
+    "H3F3A K27M": "not detected",
+    "HIST1H3B/C K27M": "not detected",
+    "IDH1/IDH2 hotspot mutation": "not detected",
+    "BRAF V600E": "not detected",
+    "KIAA1549-BRAF fusion": "not detected",
+    "FGFR1 alteration": "not detected",
+    "NTRK fusion": "not detected",
+    "ALK/ROS1/RET fusion": "not detected",
+    "MYB/MYBL1 alteration": "not detected",
+    "CDKN2A/B homozygous deletion": "detected",
+    "TP53 pathogenic variant": "detected",
+    "PDGFRA amplification": "detected",
+    "EGFR amplification": "not detected",
+    "MYCN amplification": "not detected",
+    "TERT promoter mutation": "not detected",
+    "MGMT promoter methylation": "unmethylated",
+    "tumor mutational burden": "low",
+    "microsatellite status": "stable",
+    "mismatch repair proteins": "retained",
+    "germline cancer predisposition testing": "pending"
+  },
+  "copy_number_profile": [
+    "broad copy number complexity",
+    "CDKN2A/B loss",
+    "PDGFRA focal amplification",
+    "no 1p/19q codeletion",
+    "no clear MYCN amplification"
+  ],
+  "staging": {
+    "CSF cytology": "not yet performed due to hydrocephalus concern",
+    "spine MRI": "pending",
+    "leptomeningeal dissemination": "not identified on brain MRI"
+  },
+  "surgical_question": "Stereotactic biopsy versus limited debulking; gross total resection is considered high risk because of deep thalamic location and proximity to internal capsule/corticospinal tract.",
+  "mdt_questions": [
+    "Does the imaging and pathology support pediatric-type diffuse high-grade glioma rather than diffuse midline glioma?",
+    "Is additional tissue needed for methylation profiling or trial enrollment?",
+    "What are the surgical risks given thalamic/internal capsule involvement?",
+    "What clinical trials may be relevant for pediatric high-grade glioma with PDGFRA amplification and CDKN2A/B deletion?",
+    "How should hydrocephalus risk be monitored before radiation or systemic therapy?"
+  ],
+  "safety_note": "Synthetic software testing case only. AI output is decision support for MDT discussion and must not be used as definitive diagnosis, treatment order, or surgical instruction."
+}

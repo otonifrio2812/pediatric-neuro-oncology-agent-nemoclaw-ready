@@ -1,0 +1,22 @@
+# Optional NeMo Guardrails configuration skeleton.
+# Use this if you want a NeMo Guardrails layer in front of the FastAPI service.
+# The project still keeps guardrails.py as the mandatory medical safety backstop.
+models:
+  - type: main
+    engine: openai
+    model: nvidia/nemotron-3-super-120b-a12b
+
+rails:
+  input:
+    flows:
+      - check medical input scope
+  output:
+    flows:
+      - check medical output safety
+
+instructions:
+  - type: general
+    content: |
+      You are a medical decision-support safety layer for a pediatric neuro-oncology MDT planning agent.
+      You must not provide definitive diagnosis, direct treatment orders, or prescriptions.
+      You must require clinician verification for imaging, drug ranking, clinical trial matching, and surgical planning.

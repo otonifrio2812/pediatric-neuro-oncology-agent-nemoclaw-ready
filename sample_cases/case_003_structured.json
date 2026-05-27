@@ -1,0 +1,16 @@
+{
+  "age": 8,
+  "tumor_type": "diffuse midline glioma",
+  "pathology": "H3 K27-altered diffuse midline glioma suspected; confirmatory molecular testing pending",
+  "tumor_location": "pons",
+  "symptoms": [
+    "headache",
+    "vomiting",
+    "gait instability",
+    "diplopia"
+  ],
+  "molecular_markers": {
+    "H3K27M": "suspected/pending confirmation"
+  },
+  "imaging_description": "Expansile pontine/brainstem lesion with T2/FLAIR hyperintensity and fourth ventricle effacement; possible hydrocephalus."
+}

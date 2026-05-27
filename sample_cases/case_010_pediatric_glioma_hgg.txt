@@ -1,0 +1,110 @@
+De-identified synthetic test case for pediatric neuro-oncology surgical planning agent.
+
+Patient:
+- Age: 10 years
+- Sex: Male
+- No personal identifiers included.
+- This is a synthetic case for software testing only.
+
+Chief concern:
+A 10-year-old child presents with 6 weeks of progressive morning headache, intermittent vomiting, new-onset blurred vision, and two focal seizures involving right arm jerking. Parents also report subtle decline in school performance and mild right-sided weakness.
+
+Neurologic examination:
+- Alert and interactive.
+- Mild right facial weakness.
+- Right upper extremity strength 4+/5.
+- Mild right pronator drift.
+- No cranial nerve VI palsy.
+- Gait mildly unsteady.
+- No signs of acute herniation.
+
+Imaging summary:
+Brain MRI demonstrates a left thalamic and posterior limb internal capsule centered infiltrative mass measuring approximately 4.1 x 3.6 x 3.2 cm. The lesion is T2/FLAIR hyperintense with heterogeneous T1 hypointensity. Post-contrast T1 imaging shows patchy irregular enhancement. There are small central non-enhancing regions suspicious for necrotic or cystic change. DWI/ADC shows areas of restricted diffusion along the enhancing solid component. SWI demonstrates a few punctate susceptibility foci concerning for microhemorrhage. There is mass effect on the third ventricle with mild obstructive hydrocephalus. No leptomeningeal dissemination is identified on available imaging. Spine MRI is pending.
+
+Tumor location:
+- Left thalamus
+- Extension toward posterior limb of internal capsule
+- Deep midline supratentorial location
+- Close proximity to corticospinal tract and third ventricle
+
+Symptoms:
+- Headache
+- Vomiting
+- Focal seizures
+- Mild right hemiparesis
+- Blurred vision
+- Mild gait imbalance
+
+Surgical question:
+The neurosurgical team is considering stereotactic biopsy versus limited debulking. Gross total resection is considered high risk because of deep thalamic location and proximity to internal capsule/corticospinal tract.
+
+Pathology:
+Stereotactic biopsy shows a high-grade infiltrating glioma. Histology demonstrates hypercellular glial neoplasm with nuclear atypia, brisk mitotic activity, microvascular proliferation, and focal necrosis. Final integrated diagnosis is pending molecular correlation.
+
+Preliminary integrated diagnosis:
+Pediatric-type diffuse high-grade glioma, H3-wildtype and IDH-wildtype, CNS WHO grade 4 is favored.
+Differential considerations include diffuse midline glioma and pediatric high-grade glioma molecular subtype pending full methylation profiling.
+
+Immunohistochemistry:
+- GFAP: positive
+- OLIG2: positive
+- ATRX: retained nuclear expression
+- p53: increased nuclear staining in approximately 30 percent of tumor cells
+- Ki-67 proliferation index: approximately 35 percent
+- H3 K27M: negative
+- H3K27me3: retained
+- IDH1 R132H: negative
+- INI1/SMARCB1: retained
+- BRG1/SMARCA4: retained
+- BRAF V600E: negative by IHC
+- Synaptophysin: negative in tumor cells
+
+Molecular and genetic testing:
+- H3F3A K27M: not detected
+- HIST1H3B/C K27M: not detected
+- IDH1/IDH2 hotspot mutation: not detected
+- BRAF V600E: not detected
+- KIAA1549-BRAF fusion: not detected
+- FGFR1 alteration: not detected
+- NTRK fusion: not detected
+- ALK/ROS1/RET fusion: not detected
+- MYB/MYBL1 alteration: not detected
+- CDKN2A/B homozygous deletion: detected
+- TP53 pathogenic variant: detected
+- PDGFRA amplification: detected
+- EGFR amplification: not detected
+- MYCN amplification: not detected
+- TERT promoter mutation: not detected
+- MGMT promoter methylation: unmethylated
+- Tumor mutational burden: low
+- Microsatellite status: stable
+- Mismatch repair proteins: retained by IHC
+- Germline cancer predisposition testing: pending
+
+Copy number profile:
+- Broad copy number complexity
+- CDKN2A/B loss
+- PDGFRA focal amplification
+- No 1p/19q codeletion
+- No clear MYCN amplification
+
+CSF / staging:
+- CSF cytology not yet performed due to hydrocephalus concern.
+- Spine MRI pending.
+- No radiographic leptomeningeal dissemination on brain MRI.
+
+Current management considerations:
+- Need MDT discussion regarding biopsy adequacy, feasibility of safe debulking, hydrocephalus management, radiation planning, and clinical trial eligibility.
+- Consider ventricular access or CSF diversion only if clinically indicated by hydrocephalus progression.
+- Family requests information about clinical trials and molecularly informed options.
+- No treatment decision has been finalized.
+
+Key MDT questions:
+1. Does the imaging and pathology support pediatric-type diffuse high-grade glioma rather than diffuse midline glioma?
+2. Is additional tissue needed for methylation profiling or trial enrollment?
+3. What are the surgical risks given thalamic/internal capsule involvement?
+4. What clinical trials may be relevant for pediatric high-grade glioma with PDGFRA amplification and CDKN2A/B deletion?
+5. How should hydrocephalus risk be monitored before radiation or systemic therapy?
+
+Safety note:
+This is a synthetic software testing case. The AI output should be considered decision support for MDT discussion only and must not be used as a definitive diagnosis, treatment order, or surgical instruction.

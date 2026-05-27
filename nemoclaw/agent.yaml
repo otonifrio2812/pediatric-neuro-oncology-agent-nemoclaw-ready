@@ -1,0 +1,54 @@
+# NemoClaw-ready agent manifest.
+# If the official NemoClaw runtime provides a different schema, map these fields to its tool/agent registry.
+name: pediatric-neuro-oncology-surgical-planning-agent
+version: 1.0.0
+summary: >
+  Autonomous pediatric neuro-oncology surgical planning long-agent with Nemotron 3 Super as the core reasoning model.
+core_reasoning_model: nvidia/nemotron-3-super-120b-a12b
+runtime:
+  type: docker
+  image: pediatric-neuro-oncology-agent:latest
+  service_port: 8080
+  health_endpoint: /health
+environment:
+  required:
+    - NVIDIA_API_KEY
+  optional:
+    - NCBI_EMAIL
+    - NCBI_API_KEY
+    - ENABLE_DRUG_RANKING
+capabilities:
+  - deidentification
+  - completeness_check
+  - dicom_nifti_advanced_imaging
+  - jpg_png_vlm_image_description
+  - rag_retrieval
+  - nemotron_clinical_reasoning
+  - clinical_trial_matching
+  - preclinical_drug_ranking_appendix
+  - policy_based_medical_guardrails
+  - mdt_report_generation
+  - autonomous_evidence_refresh
+tools:
+  - name: run_case
+    method: POST
+    endpoint: /run_case
+    description: Run complete long-agent workflow for one de-identified pediatric neuro-oncology case.
+    required_policy_group: medical_mdt_decision_support
+  - name: refresh_once
+    method: POST
+    endpoint: /refresh_once
+    description: Refresh PubMed and ClinicalTrials.gov evidence sources for RAG.
+    required_policy_group: evidence_refresh
+persistence:
+  volumes:
+    - outputs
+    - logs
+    - rag_sources
+    - medical_inputs
+network_allowlist:
+  - integrate.api.nvidia.com
+  - eutils.ncbi.nlm.nih.gov
+  - clinicaltrials.gov
+  - github.com
+  - raw.githubusercontent.com

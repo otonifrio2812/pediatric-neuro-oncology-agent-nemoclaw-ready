@@ -1,0 +1,20 @@
+services:
+  pediatric-neuro-agent:
+    build: .
+    container_name: pediatric-neuro-agent
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    environment:
+      NEMOTRON_MODEL: "nvidia/nemotron-3-super-120b-a12b"
+      NVIDIA_BASE_URL: "https://integrate.api.nvidia.com/v1"
+      OUTPUT_DIR: "outputs"
+      ENABLE_DRUG_RANKING: "0"
+    volumes:
+      - ./outputs:/app/outputs
+      - ./logs:/app/logs
+      - ./rag_sources:/app/rag_sources
+      - ./medical_inputs:/app/medical_inputs
+      - ./assets:/app/assets:ro

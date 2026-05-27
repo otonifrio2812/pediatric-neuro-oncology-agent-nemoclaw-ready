@@ -1,0 +1,32 @@
+# Virtual environments
+.venv-nemoclaw/
+.venv/
+venv/
+env/
+
+# Runtime output directories
+outputs/*
+!outputs/.gitkeep
+
+logs/*
+!logs/.gitkeep
+
+medical_inputs/*
+!medical_inputs/.gitkeep
+
+rag_sources/*
+!rag_sources/.gitkeep
+
+# Python / notebook caches
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Local secrets
+.env
+.env.*
+!.env.example
+!.env.nemoclaw.example
+
+# macOS
+.DS_Store
